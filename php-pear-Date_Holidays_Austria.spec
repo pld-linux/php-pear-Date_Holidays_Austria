@@ -6,17 +6,18 @@
 Summary:	%{_pearname} - Driver based class to calculate holidays in Austria
 Summary(pl.UTF-8):	%{_pearname} - klasa to obliczania dat świąt austriackich
 Name:		php-pear-%{_pearname}
-Version:	0.1.2
+Version:	0.1.4
 Release:	1
 License:	PHP License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	5240be9f73f79f50355a6628dbded22b
+# Source0-md5:	67580695440de1b8dba85df30f2847a8
 URL:		http://pear.php.net/package/Date_Holidays_Austria/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-pear
-Requires:	php-pear-Date_Holidays >= 0.18.0
+Requires:	php-pear-Date_Holidays >= 0.21.1
+Requires:	php-pear-PEAR-core >= 1:1.4.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -37,9 +38,9 @@ Ta klasa ma w PEAR status: %{_status}.
 Summary:	Tests for PEAR::%{_pearname}
 Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
-AutoReq:	no
 Requires:	%{name} = %{version}-%{release}
 AutoProv:	no
+AutoReq:	no
 
 %description tests
 Tests for PEAR::%{_pearname}.
@@ -63,6 +64,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc install.log
 %{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/Date/Holidays/Driver/Austria.php
+%dir %{php_pear_dir}/Date/Holidays/Filter/Austria
+%{php_pear_dir}/Date/Holidays/Filter/Austria/Official.php
 
 %files tests
 %defattr(644,root,root,755)
